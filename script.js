@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Manejo de envío del formulario
     const form = document.getElementById('login-form');
     form.addEventListener('submit', (event) => {
-      event.preventDefault();
     });
   });
   
