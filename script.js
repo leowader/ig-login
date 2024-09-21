@@ -18,27 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('login-form');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-  
-      // Ocultar el contenido actual
-      document.body.innerHTML = '';
-  
-      // Crear el mensaje de advertencia y agregarlo al cuerpo del documento
-      const warningDiv = document.createElement('div');
-      warningDiv.className = 'flex justify-center flex-col items-center w-full h-screen bg-white text-black';
-      warningDiv.innerHTML = `
-        <p>
-          "¡HEY, TEN CUIDADO! Siempre verifica los correos electrónicos antes de
-          hacer clic. Puedes ser víctima de phishing."
-        </p>
-        <img
-          class="size-20"
-          src="https://static.vecteezy.com/system/resources/thumbnails/012/042/292/small/warning-sign-icon-transparent-background-free-png.png"
-          alt="Warning Sign"
-        />
-      `;
-  
-      // Agregar el div al cuerpo del documento
-      document.body.appendChild(warningDiv);
     });
   });
   
